@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  mysql:
+    image: mysql:8.0.19
+    ports: 
+      - 127.0.0.1:3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: fhn1C1293cSasd2
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: z8zce3Ct34uabtNo
+    volumes:
+      - mysql:/var/lib/mysql
+      - ./mysql/conf:/etc/mysql/conf.d
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    networks:
+      - app
+  
+networks:
+  app:
+  worker:
+
+volumes:
+  mysql:
